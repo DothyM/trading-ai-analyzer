@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Trading AI Analyzer - Teste</title>
+</head>
+<body>
+    <h1>Trading AI Analyzer</h1>
+    <button onclick="testApi()">Testar Conexão com API</button>
+    <p id="result"></p>
+    <script>
+        async function testApi() {
+            const resultElem = document.getElementById('result');
+            resultElem.textContent = 'Testando...';
+            try {
+                const r = await fetch('http://localhost:5000/api/health');
+                const d = await r.json();
+                resultElem.textContent =
+                  d.status ? `API Funcionando! Status: ${d.status}` : 'Sem resposta da API';
+            } catch (e) {
+                resultElem.textContent = 'Erro ao conectar com a API. Certifique-se que o backend está rodando.';
+            }
+        }
+    </script>
+</body>
+</html>
+
