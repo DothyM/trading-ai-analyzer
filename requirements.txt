@@ -1,5 +1,5 @@
 flask
 gunicorn
 pandas==1.5.3
-yfinance
+yfinance==0.2.54
 flask_cors
